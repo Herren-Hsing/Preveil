@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priveil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+    <div class="header">Priveil</div>
+    <a href="/" class="logout-button">Logout</a>
+    <div class="outer-box">
+        <div class="upload-box">
+            <h1>选择要上传的文件</h1>
+            <h2>或者将文件拖拽到这里</h2>
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <input type="text" name="invite_code" placeholder="邀请码" required>
+                <div class="button-container">
+                    <button type="submit" class="upload-button">上传文件</button>
+                </div>
+            </form>
+            <p>文件最大可达 10 GB</p>
+        </div>
+        <div class="info-box">
+            <h2>简单、私密的数据分享</h2>
+            <p>我们的平台利用安全多方计算和差分隐私技术，确保数据安全。多方共同上传数据，系统会处理数据并生成差分隐私数据供使用。保护数据隐私，确保共享安全。</p>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#">About us</a>
+        <a href="#">Contact us</a>
+        <a href="#">Help center</a>
+        <a href="#">Security</a>
+        <a href="#">Language</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#uploadForm').on('submit', function(event){
+                event.preventDefault();
+                
+                var formData = new FormData(this);
+                
+                $.ajax({
+                    url: "{{ url_for('upload') }}",
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        alert(response.message);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert('An error occurred: ' + errorThrown);
+                    }
+                });
+            });
+        });
+
+        function showMessage(message) {
+            alert(message);
+        }
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const message = urlParams.get('message');
+
+        if (message) {
+            showMessage(message);
+        }
+    </script>
+</body>
+</html>

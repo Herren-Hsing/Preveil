@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            color: #333;
+            padding: 1rem 2rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            width: 50px;
+            height: auto;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+        main {
+            flex: 1;
+            text-align: center;
+            padding: 2rem;
+        }
+        footer {
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            padding: 1rem 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .login-button {
+            display: inline-block;
+            width: 150px;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="../static/images/logo.jpg" alt="Logo">
+        <h1>This is my website</h1>
+    </header>
+    <main>
+        <h2>About Us</h2>
+        <p>This is a simple website to showcase a basic HTML structure.</p>
+        <a href="/login" class="login-button">Login</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

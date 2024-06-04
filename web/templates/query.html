@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Page</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+    <div class="header">Priveil</div>
+    <a href="/" class="logout-button">Logout</a>
+    <div class="background"></div>
+    <div class="container">
+        <div class="upload-boxs">
+            <div class="button-container">
+                <button class="btn btn-inline" id="inviteBtn">Invite Data Upload</button>
+                <button class="btn btn-inline" id="queryBtn">Query Data</button>
+            </div>
+
+            <div class="message" id="message">
+                <div class="query-box" id="queryBox" style="display: none;">
+                    <input type="text" id="inviteCode" placeholder="Enter Invite Code">
+                    <button class="btn" id="confirmBtn">Confirm</button>
+                </div>
+                <div class="confirmation-message" id="confirmationMessage"></div>
+                <button class="btn" id="getDataBtn" style="display: none;">Get Data</button>
+                <div class="waiting-message" id="waitingMessage" style="display: none;">Waiting...</div>
+                <div class="command-message" id="commandMessage" style="display: none;"></div>
+                <button class="btn" id="popupBtn" style="display: none;" onclick="downloadAndShowError()">Download data</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#">About us</a>
+        <a href="#">Contact us</a>
+        <a href="#">Help center</a>
+        <a href="#">Security</a>
+        <a href="#">Language</a>
+    </div>
+    <!-- Add this script to include Socket.IO client library -->
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    
+    <script>
+        const socket = io();
+        let inviteCode = '';
+
+        socket.on('command_status', function(data) {
+            const commandMessage = document.getElementById('commandMessage');
+            if (data.status === 'success') {
+                commandMessage.innerText = data.message + '\nError: ' + data.error_value;
+                commandMessage.style.color = 'black';
+                document.getElementById('popupBtn').style.display = 'block';
+            } else {
+                commandMessage.innerText = data.message;
+                commandMessage.style.color = 'red';
+            }
+            commandMessage.style.display = 'block';
+        });
+
+        document.getElementById('inviteBtn').addEventListener('click', function() {
+            fetch('/invite', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('message').innerText = 'Invite Code: ' + data.invite_code;
+                } else {
+                    document.getElementById('message').innerText = 'Error: ' + data.message;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('message').innerText = 'An error occurred while generating the invite code.';
+            });
+        });
+
+        document.getElementById('queryBtn').addEventListener('click', function() {
+            document.getElementById('queryBox').style.display = 'block';
+        });
+
+        document.getElementById('confirmBtn').addEventListener('click', function() {
+            inviteCode = document.getElementById('inviteCode').value;
+            
+            fetch('/verify_invite', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ invite_code: inviteCode })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const confirmationMessage = document.getElementById('confirmationMessage');
+                const getDataBtn = document.getElementById('getDataBtn');
+                if (data.success && data.message === "Invite code is valid") {
+                    confirmationMessage.innerText = 'Invite code is valid';
+                    confirmationMessage.style.color = 'green';
+                    getDataBtn.style.display = 'block';
+                } else {
+                    confirmationMessage.innerText = 'Error: ' + data.message;
+                    confirmationMessage.style.color = 'red';
+                    getDataBtn.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const confirmationMessage = document.getElementById('confirmationMessage');
+                confirmationMessage.innerText = 'An error occurred while verifying the invite code.';
+                confirmationMessage.style.color = 'red';
+            });
+        });
+
+        document.getElementById('getDataBtn').addEventListener('click', function() {
+            const waitingMessage = document.getElementById('waitingMessage');
+            const commandMessage = document.getElementById('commandMessage');
+            waitingMessage.style.display = 'block';
+            commandMessage.style.display = 'none';
+        
+            fetch('/get_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ invite_code: inviteCode })
+            })
+            .then(response => response.json())
+            .then(data => {
+                waitingMessage.style.display = 'none';
+                if (data.success) {
+                    commandMessage.innerText = data.message;
+                    commandMessage.style.color = 'green';
+                } else {
+                    commandMessage.innerText = data.message + '\n' + (data.error || '');
+                    commandMessage.style.color = 'red';
+                }
+                commandMessage.style.display = 'block';
+            })
+            .catch(error => {
+                waitingMessage.style.display = 'none';
+                commandMessage.innerText = 'An error occurred: ' + error;
+                commandMessage.style.color = 'red';
+                commandMessage.style.display = 'block';
+            });
+        });
+
+        function downloadAndShowError() {
+            window.location.href = `/download/${inviteCode}`;
+        }
+    </script>
+</body>
+</html>

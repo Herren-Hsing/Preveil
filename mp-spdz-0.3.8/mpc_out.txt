@@ -1,0 +1,18 @@
+Default bit length for compilation: 64
+Default security parameter for compilation: 40
+Compiling file /home/judy/Preveil/Programs/Source/safe_addition.mpc
+Writing to Programs/Schedules/safe_addition-2.sch
+Writing to Programs/Bytecode/safe_addition-2-0.bc
+Hash: 403dd9eb164fda0eb9baa576ee127ae96c99829cdadfe05be705900ee7193e6d
+Program requires at most:
+           2 integer inputs from player 0
+           2 integer inputs from player 1
+           2 integer opens
+           2 virtual machine rounds
+Using statistical security parameter 40
+num_workloads: 2
+Final:[[12.7584], [-2.21675]]
+The following benchmarks are including preprocessing (offline phase).
+Time = 22.3564 seconds 
+Data sent = 20.5238 MB in ~63 rounds (party 0 only; use '-v' for more details)
+Global data sent = 41.0477 MB (all parties)

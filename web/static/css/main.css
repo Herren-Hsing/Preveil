@@ -1,0 +1,270 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.outer-box {
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.upload-box {
+    border: 2px dashed white;
+    padding: 40px;
+    width: 45%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.upload-boxs {
+    border: 2px dashed white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    align-items: center;
+    padding: 40px;
+    width: 600px;
+    max-width: 600px;
+
+    /* 新增的Flexbox属性 */
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* 如果有多个元素，需要垂直排列 */
+}
+
+.button-container {
+    /* 新增的容器用于包含按钮 */
+    display: flex;
+    justify-content: center; /* 水平居中对齐 */
+    gap: 10px; /* 按钮之间的间距 */
+    width: 100%;
+}
+
+.upload-box h1 {
+    font-size: 2.1em;
+    margin-bottom: 10px;
+}
+
+.upload-box h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.upload-box p {
+    font-size: 1em;
+    margin: 10px 0;
+    text-align: center;
+    font-family: 'FangSong', '仿宋', serif;
+}
+
+.upload-box input[type="file"],
+.upload-box input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-family: 'FangSong', '仿宋', serif;
+}
+
+.upload-box input[type="file"]::file-selector-button {
+    margin-right: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #fbc2eb, #c4f1f9);
+    color: black;
+    cursor: pointer;
+    font-family: 'SongTi', '宋体', serif;
+}
+
+.upload-box input[type="file"]::file-selector-button:hover {
+    background: #9a3bbd;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.btn {
+    background: linear-gradient(135deg, #fbc2eb, #c4f1f9);
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.btn-inline {
+    display: inline-block;
+    background: linear-gradient(135deg, #fbc2eb, #c4f1f9);
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.upload-button {
+    background: linear-gradient(135deg, #fbc2eb, #c4f1f9);
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'SongTi', '宋体', serif;
+}
+
+.upload-button:hover {
+    background: linear-gradient(135deg, #fbc2eb, #c4f1f9);
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 3em;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(45deg, #af52d2, #56cfe1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info-box {
+    width: 45%;
+}
+
+.info-box h2 {
+    background: linear-gradient(to right, #fbc2eb, #cbf2ed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5em;
+}
+
+.info-box p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.info-box img {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.footer a {
+    color: #af52d2;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.logout-button {
+    position: absolute;
+    top: 28px;
+    right: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #fbc2eb, #c4f1f9);
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logout-button:hover {
+    background: #9a3bbd;
+    text-decoration: none;
+}
+
+.message, .confirmation-message {
+
+    font-size: 20px;
+    color: #333333;
+}
+.query-box {
+
+    text-align: left;
+}
+.query-box input[type="text"] {
+    width: calc(222px);
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.container {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-inline {
+    display: inline-block;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#getDataBtn {
+    display: none;
+}

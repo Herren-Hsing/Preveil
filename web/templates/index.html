@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../static/css/style.css" />
+
+    <title>Priveil</title>
+  </head>
+  <body>
+    <div class="hero-bg">
+      <header class="container-fluid py-3 px-4">
+        <nav class="navbar navbar-expand-lg mb-0 mb-lg-5">
+          <a href="/" class="navbar-brand">
+            <img src="./static/images/logo.jpg" alt="logo" height="60px" width="200px"/>
+          </a>
+  
+          <button class="navbar-toggler toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav navigation me-auto ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" >About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" >Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" >Document</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" >Blog</a>
+              </li>
+            </ul>
+  
+            <div class="nav-btn">
+                <button type="button" class="login btn border-0 me-3" onclick="window.location.href='/login'">
+
+                Login
+              </button>
+              <button type="button" class="get-start btn btn-outline-primary px-4 rounded-pill" onclick="window.location.href='/signup'">
+               Get started
+              </button>
+            </div>
+            
+          </div>
+        </nav>
+
+        <svg class="bottom-curve" viewBox="0 0 834 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M242.5 2.48937C135.3 -9.90908 37.6667 26.7931 0 51.0969V99H834V14.4651C519.5 90.5465 449 26.3726 242.5 2.48937Z" fill="white"/>
+          </svg>
+          
+        
+        <!----------------- hero ---------------->
+        <div class="row gy-5">
+          <div class="col-lg-6 text-white">
+            <h1 class="hero-header mt-5">Secure Data Sharing Platform</h1>
+            <p class="hero-subheader mt-3">Distributed Differential Privacy Data Synthesis Platform Based on Secure Multi-Party Computation.</p>
+
+            <div class="hero-cto mt-5">
+              <button class="btn get-start btn-primary px-4 py-2 rounded-pill" onclick="window.location.href='/login'">Get started</button>
+            </div>
+          </div>
+  
+          <div class="col-lg-6">
+            <div class="hero-image">
+              <img class="feature" src="./static/images/pic.jpg"   style="width:40%; height:auto;" alt="hero feature image">
+            </div>
+          </div>
+        </div>
+      </header> 
+    </div>
+
+    <!-- ---------------------------task------------------------------------ -->
+    <section id="About" class="task-section mt-0 mt-md-5 px-4">
+      <div class="row align-items-lg-center task-content gx-2 gy-5  justify-content-between flex-column-reverse flex-lg-row">
+        <div class="col col-lg-6">
+          <img class="task-feature" src="./static/images/task.png"   style="width:80%; height:auto;" alt="task picture">
+        </div>
+        <div class="col col-lg-6">
+          <div class="taskSec-content mt-0 mt-md-5">
+            <h1 class="section-heading fs-1 mb-3">
+              Shield of privacy</h1>
+            <p class="section-subhead"> In the realm of data, where privacy and utility often stand at odds, our platform emerges as a beacon of innovation. Here, multiple parties converge, contributing their data into a collective pool. Through the alchemy of secure multi-party computation and the grace of differential privacy, we synthesize data that is both rich in insights and steadfast in privacy. It is a dance of numbers, where every step ensures the secrets are kept, and the knowledge shared.</p>
+          </div>
+        </div>
+      </div>
+
+      <img class="round-shape" src="./static/images/round.svg" alt="round shape">
+    </section>
+
+    <!-- ---------------------------Chat------------------------------------ -->
+    <section class="chat-section mt-5 px-4">
+      <div class="row chat-content align-items-lg-center gx-2 gy-5 justify-content-between flex-lg-row">
+        <div class="col-lg-6 col-sm-12">
+          <div class="chatSec-content mt-5">
+          </div>
+        </div>
+   
+      </div>
+    </section>
+
+    <!---------- footer ------------>
+    <footer class="footer">
+      <div class="footer-wrapper m-auto">
+        <div class="row gy-5 row-cols-1 row-cols-lg-2  flex-wrap justify-content-between">
+          <div class="col col-md-5">
+            <img class="footer-logo" src="./static/images/logo.jpg" alt="footer logo">
+            <p class="footer-sub my-4 section-subhead">Our platform harmonizes privacy and utility by securely synthesizing multi-party data with differential privacy, ensuring insights without compromising confidentiality.</p>
+            <div class="socials d-flex justify-content-between">
+              <img src="./static/images/Facebook.svg" alt="Facebook logo">
+              <img src="./static/images/twitter.svg" alt="twitter logo">
+              <img src="./static/images/instagram.svg" alt="instagram logo">
+              <img src="./static/images/linkedin.svg" alt="linkedin logo">
+            </div>
+
+            <p class="d-block d-md-none mt-3">Made with <i class="fa-solid fa-heart text-danger"></i> by Tazkily team</p>
+          </div>
+      
+          <div class="col col-md-7 d-flex gy-5 flex-wrap justify-content-between row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <div class="col mb-5 mb-lg-0">
+              <h5 class="mb-4 text-white section-heading">Usefull links</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Source code</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Our document</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Feature updates</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Chrome ententions</a></li>
+              </ul>
+            </div>
+        
+            <div class="col mb-5 mb-lg-0">
+              <h5 class="mb-4 text-white section-heading">Our product</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Multi-Party Data Sharing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Differential Privacy</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Data Synthesis with Utility</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Confidentiality Ensured</a></li>
+              </ul>
+            </div>
+      
+            <div class="col">
+              <h5 class="mb-4 text-white section-heading">About us</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">What is Priveil</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Our purpose</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Contact us</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Work with us</a></li>
+              </ul>
+            </div>
+          </div>
+          </div>
+
+        <div class="d-flex section-subhead mt-3 mt-sm-5 pt-3 pt-sm-5 justify-content-center justify-content-md-between">
+          <p class="d-none d-md-block">Security</p>
+          <p class="text-center d-block">Copywrite © Priveil, 2024</p>
+          <span class="d-none d-md-block">Help</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/aa08d20a7f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../static/css/script.js"></script>
+  </body>
+</html>

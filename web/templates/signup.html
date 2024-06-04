@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="header">Sign Up</div>
+            <div class="form-wrapper">
+                <form id="signupForm">
+                    <input type="text" name="username" placeholder="username" class="input-item" required>
+                    <input type="password" name="password" placeholder="password" class="input-item" required>
+                    <input type="password" name="confirm_password" placeholder="confirm password" class="input-item" required>
+                    <select name="role" class="input-item" required>
+                        <option value="">Select Role</option>
+                        <option value="uploader">Data Uploader</option>
+                        <option value="user">Data User</option>
+                    </select>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+            </div>
+            <div class="msg">
+                Already have an account?
+                <a href="/login">Login</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('/signup', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.includes("User registered successfully.")) {
+                    alert("User registered successfully.");
+                    window.location.href = '/login';
+                } else {
+                    alert(data);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during signup.');
+            });
+        });
+    </script>
+</body>
+</html>

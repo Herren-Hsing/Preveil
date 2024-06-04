@@ -1,0 +1,13 @@
+num_workloads = int(program.args[1])
+sfix.set_precision(16, 63)
+print_ln("num_workloads: %s", num_workloads)
+
+alice_ans = sfix.Matrix(num_workloads, 1)
+bob_ans = sfix.Matrix(num_workloads, 1)
+
+alice_ans.input_from(0)
+bob_ans.input_from(1)
+
+result = alice_ans + bob_ans
+
+print_ln("Final:%s", result.reveal())
